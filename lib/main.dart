@@ -5,12 +5,12 @@ import 'package:test_app/screens/responsive.dart';
 import 'package:test_app/screens/web_screen_layout.dart';
 
 void main() {
-  //runApp(const MyApp());
-  runApp(
-    DevicePreview(
-      builder: (context) => MyApp(), // Wrap your app
-    ),
-  );
+  runApp(const MyApp());
+  // runApp(
+  //   DevicePreview(
+  //     builder: (context) => MyApp(), // Wrap your app
+  //   ),
+  // );
 }
 
 class MyApp extends StatelessWidget {
@@ -21,8 +21,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Responsive Design',
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
+      theme: ThemeData.light().copyWith(
+        scaffoldBackgroundColor: Colors.white
+      ),
+      //locale: DevicePreview.locale(context),
+      //builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       
       home: const ResponsiveLayout(mobileScreenLayout: MobileScreenLayout(), webScreenLayout: WebScreenLayout()),
